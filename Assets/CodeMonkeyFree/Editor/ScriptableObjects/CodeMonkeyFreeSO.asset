@@ -14,39 +14,39 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentVersion: 1.01
   subtype: kitchenchaos
-  lastShownTimestamp: 1761727948
+  lastShownTimestamp: 1761815242
   lastUpdateResponse:
-    version: 1.00
+    version: 1.01
     versionUrl: https://unitycodemonkey.com
-  checkedLastUpdateTimestamp: 1761727948
+  checkedLastUpdateTimestamp: 1761815242
   lastQOTDResponse:
-    questionId: 163
-    questionText: What is the purpose of Unity Hub?
-    answerA: Provide a space for the community to interact
-    answerB: Manage different Unity versions and Projects
-    answerC: Dashboard for Unity services
+    questionId: 236
+    questionText: Can Color ever be null?
+    answerA: Yes, always
+    answerB: No
+    answerC: Yes, as Nullable
     answerD: 
     answerE: 
-  lastQotdTimestamp: 1761727948
+  lastQotdTimestamp: 1761815242
   lastDynamicHeaderResponse:
-    topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/humbleBundleSyntyMar25.png
-    topText: Make ANY game with these awesome Assets! (96% OFF ENDS SOON!)
-    topLink: humblebundle
-    bottomText: Learn Unity DOTS for MASSIVE Performance Boosts! (and make an RTS)
-    bottomLink: dotscourse
-  lastDynamicHeaderTimestamp: 1761727948
+    topImageUrl: https://codemonkeyexternal.blob.core.windows.net/external/Misc/gameDevReport_2.png
+    topText: Stay up to date with the latest in Game Dev straight to your inbox!
+    topLink: gamedevreport
+    bottomText: My 10+ Years of C# Knowledge in 1 Course!
+    bottomLink: csharpcourse
+  lastDynamicHeaderTimestamp: 1761815242
   websiteLatestMessage:
     text: <a href="https://cmonkey.co/freecourses">Check out all my FREE courses!
       Click here!</a>
-  websiteLatestMessageTimestamp: 1761727948
+  websiteLatestMessageTimestamp: 1761815242
   websiteLatestVideos:
     videos:
-    - youTubeId: ZIg7VoD9ptI
-      title: The FUTURE of Unity in 2025 and BEYOND!
-    - youTubeId: W_XOZAWJF24
-      title: I made the MOST PROFITABLE Game as a Test!
-    - youTubeId: J0KMvH-yFmA
-      title: TOP 10 NEW Games, Made with Unity! (FEBRUARY 2025)
-    - youTubeId: DOSLOa7cnoE
-      title: I SHOULD have done this a long time ago, and YOU too!
-  websiteLatestVideosTimestamp: 1761727948
+    - youTubeId: UGhId8Zd3eM
+      title: BEST NEW Visual Assets to INSPIRE YOU! (OCTOBER 2025)
+    - youTubeId: qX5m_EH4Wbo
+      title: How to FAIL with 100k WISHLISTS!
+    - youTubeId: wBoRaQQm9WE
+      title: TOP 10 NEW Systems and Tools OCTOBER 2025! | Unity Asset Store
+    - youTubeId: arIZP7op9WQ
+      title: My TECH Stack as a Game Developer, YouTuber and Web Dev!
+  websiteLatestVideosTimestamp: 1761815242
