@@ -1,8 +1,17 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
+    public static Player Instance { get; private set; }
+
+    public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
+    public class OnSelectedCounterChangedEventArgs : EventArgs
+    {
+        public ClearCounter selectedCounter;
+    }
+
     [SerializeField]
     private float moveSpeed = 7f;
     [SerializeField]
@@ -15,6 +24,17 @@ public class Player : MonoBehaviour
     private bool isWalking;
     private float interactionDistance = 2f;
     private ClearCounter selectedCounter;
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Debug.LogError("There is more than one Player instance!");
+            Destroy(gameObject);
+            return;
+        }
+        Instance = this;
+    }
 
     private void Update()
     {
@@ -47,17 +67,17 @@ public class Player : MonoBehaviour
             {
                 if (selectedCounter != clearCounter)
                 {
-                    selectedCounter = clearCounter;
+                    SetSelectedCounter(clearCounter);
                 }
             }
             else
             {
-                selectedCounter = null;
+                SetSelectedCounter(null);
             }
         }
         else
         {
-            selectedCounter = null;
+            SetSelectedCounter(null);
         }
     }
 
@@ -130,4 +150,12 @@ public class Player : MonoBehaviour
         }
     }
 
+    private void SetSelectedCounter(ClearCounter selectedCounter)
+    {
+        this.selectedCounter = selectedCounter;
+        OnSelectedCounterChanged?.Invoke(this, new OnSelectedCounterChangedEventArgs
+        {
+            selectedCounter = selectedCounter
+        });
+    }
 }
