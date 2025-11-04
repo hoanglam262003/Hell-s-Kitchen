@@ -167,6 +167,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6827301622904457345, guid: bb0f4f4c28ba470459c152602bcc9d8a, type: 3}
+      propertyPath: prefab
+      value: 
+      objectReference: {fileID: 1760956943913913495, guid: ab1b3ab7603f7d94fb2fd17705f9c63e, type: 3}
+    - target: {fileID: 6827301622904457345, guid: bb0f4f4c28ba470459c152602bcc9d8a, type: 3}
+      propertyPath: kitchenObjectSO
+      value: 
+      objectReference: {fileID: 11400000, guid: c270ce09116bc7547a752d8f5d7fbeea, type: 2}
     - target: {fileID: 8349976745493463023, guid: bb0f4f4c28ba470459c152602bcc9d8a, type: 3}
       propertyPath: m_Name
       value: ClearCounter (1)

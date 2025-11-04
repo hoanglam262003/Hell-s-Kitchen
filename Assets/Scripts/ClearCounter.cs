@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class ClearCounter : MonoBehaviour
 {
+    [SerializeField]
+    private KitchenObjectSO kitchenObjectSO;
+    [SerializeField]
+    private Transform spawmPoint;
+
     private void OnEnable()
     {
         PlayerInteractionEvent.OnInteract += TryInteract;
@@ -22,6 +27,7 @@ public class ClearCounter : MonoBehaviour
 
     public void Interact(Player player)
     {
-        Debug.Log($"Interacted with {name}");
+        Transform kitchenObjectTransform = Instantiate(kitchenObjectSO.prefab, spawmPoint);
+        kitchenObjectTransform.localPosition = Vector3.zero;
     }
 }
