@@ -2,9 +2,9 @@ using System;
 
 public static class PlayerInteractionEvent
 {
-    public static event Action<ClearCounter, Player> OnInteract;
+    public static event Action<BaseCounter, Player> OnInteract;
 
-    public static void RaiseInteract(ClearCounter counter, Player player)
+    public static void RaiseInteract(BaseCounter counter, Player player)
     {
         OnInteract?.Invoke(counter, player);
     }

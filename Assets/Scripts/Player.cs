@@ -9,7 +9,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
     public class OnSelectedCounterChangedEventArgs : EventArgs
     {
-        public ClearCounter selectedCounter;
+        public BaseCounter selectedCounter;
     }
 
     [SerializeField]
@@ -25,7 +25,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     private float moveDistance;
     private bool isWalking;
     private float interactionDistance = 2f;
-    private ClearCounter selectedCounter;
+    private BaseCounter baseCounter;
     private KitchenObject kitchenObject;
 
     private void Awake()
@@ -53,9 +53,9 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     private void HandleInteractionInput()
     {
-        if (Keyboard.current.eKey.wasPressedThisFrame && selectedCounter != null)
+        if (Keyboard.current.eKey.wasPressedThisFrame && baseCounter != null)
         {
-            PlayerInteractionEvent.RaiseInteract(selectedCounter, this);
+            PlayerInteractionEvent.RaiseInteract(baseCounter, this);
         }
     }
 
@@ -66,11 +66,11 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
         if (Physics.Raycast(rayOrigin, direction, out RaycastHit hit, interactionDistance, countersLayerMask))
         {
-            if (hit.transform.TryGetComponent(out ClearCounter clearCounter))
+            if (hit.transform.TryGetComponent(out BaseCounter baseCounter))
             {
-                if (selectedCounter != clearCounter)
+                if (this.baseCounter != baseCounter)
                 {
-                    SetSelectedCounter(clearCounter);
+                    SetSelectedCounter(baseCounter);
                 }
             }
             else
@@ -153,9 +153,9 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         }
     }
 
-    private void SetSelectedCounter(ClearCounter selectedCounter)
+    private void SetSelectedCounter(BaseCounter selectedCounter)
     {
-        this.selectedCounter = selectedCounter;
+        this.baseCounter = selectedCounter;
         OnSelectedCounterChanged?.Invoke(this, new OnSelectedCounterChangedEventArgs
         {
             selectedCounter = selectedCounter

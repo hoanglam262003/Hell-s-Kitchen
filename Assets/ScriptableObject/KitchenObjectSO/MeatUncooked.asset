@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a44a7c0245d7faf49849f1b81f5a4712, type: 3}
-  m_Name: CheeseBlock
+  m_Name: MeatUncooked
   m_EditorClassIdentifier: Assembly-CSharp::KitchenObjectSO
-  prefab: {fileID: 1760956943913913495, guid: ab1b3ab7603f7d94fb2fd17705f9c63e, type: 3}
-  sprite: {fileID: 21300000, guid: da2d04fe27b94e34ea0b624569b48a6f, type: 3}
-  objectName: Cheese Block
+  prefab: {fileID: 1760956943913913495, guid: 25e6ce9718bf1a042b348c406f9983b2, type: 3}
+  sprite: {fileID: 21300000, guid: aa1bacc24dde76e47b2ec0dd4e82385b, type: 3}
+  objectName: Meat Uncooked
