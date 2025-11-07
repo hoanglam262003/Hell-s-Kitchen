@@ -53,9 +53,16 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     private void HandleInteractionInput()
     {
-        if (Keyboard.current.eKey.wasPressedThisFrame && baseCounter != null)
+        if (baseCounter == null) return;
+
+        if (Keyboard.current.eKey.wasPressedThisFrame)
         {
-            PlayerInteractionEvent.RaiseInteract(baseCounter, this);
+            PlayerInteractionEvent.RaiseInteraction(baseCounter, this, InteractionType.Interact);
+        }
+
+        if (Keyboard.current.fKey.wasPressedThisFrame)
+        {
+            PlayerInteractionEvent.RaiseInteraction(baseCounter, this, InteractionType.Cut);
         }
     }
 
@@ -120,7 +127,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         if (!canMove)
         {
             Vector3 moveDirectionX = new Vector3(moveDirection.x, 0f, 0f).normalized;
-            canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirectionX, moveDistance);
+            canMove = moveDirection.x != 0 && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirectionX, moveDistance);
             if (canMove)
             {
                 moveDirection = moveDirectionX;
@@ -128,7 +135,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
             else
             {
                 Vector3 moveDirectionZ = new Vector3(0f, 0f, moveDirection.z).normalized;
-                canMove = !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirectionZ, moveDistance);
+                canMove = moveDirection.z != 0 && !Physics.CapsuleCast(transform.position, transform.position + Vector3.up * playerHeight, playerRadius, moveDirectionZ, moveDistance);
                 if (canMove)
                 {
                     moveDirection = moveDirectionZ;

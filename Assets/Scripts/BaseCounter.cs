@@ -8,24 +8,35 @@ public class BaseCounter : MonoBehaviour, IKitchenObjectParent
     private KitchenObject kitchenObject;
     private void OnEnable()
     {
-        PlayerInteractionEvent.OnInteract += TryInteract;
+        PlayerInteractionEvent.OnInteraction += TryInteract;
     }
 
     private void OnDisable()
     {
-        PlayerInteractionEvent.OnInteract -= TryInteract;
+        PlayerInteractionEvent.OnInteraction -= TryInteract;
     }
 
-    private void TryInteract(BaseCounter counter, Player player)
+    private void TryInteract(BaseCounter counter, Player player, InteractionType type)
     {
-        if (counter == this)
+        if (counter != this) return;
+
+        switch (type)
         {
-            Interact(player);
+            case InteractionType.Interact:
+                Interact(player);
+                break;
+            case InteractionType.Cut:
+                TryCut(player);
+                break;
         }
     }
     public virtual void Interact(Player player)
     {
         
+    }
+    public virtual void TryCut(Player player)
+    {
+
     }
     public Transform GetKitchenObjectFollowTransform()
     {
