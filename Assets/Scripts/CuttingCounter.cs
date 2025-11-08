@@ -1,19 +1,18 @@
+using System;
 using UnityEngine;
 
 public class CuttingCounter : BaseCounter
 {
+    public event EventHandler<OnProgressChangedEventArgs> OnProgressChanged;
+    public class OnProgressChangedEventArgs : EventArgs
+    {
+        public float progressNormalized;
+    }
+    public event EventHandler OnCut;
     [SerializeField]
     private CuttingRecipeSO[] cuttingRecipeSOArray;
-    public override void TryCut(Player player)
-    {
-        if (HasKitchenObject() && HasRecipeWithInput(GetKitchenObject().GetKitchenObjectSO()))
-        {
-            KitchenObjectSO outputKitchenObjectSO = GetOutputForInput(GetKitchenObject().GetKitchenObjectSO());
-            GetKitchenObject().DestroySelf();
-            KitchenObject.SpawnKitchenObject(outputKitchenObjectSO, this);
-        }
-    }
-
+    private int cuttingProgress;
+    
     public override void Interact(Player player)
     {
         if (!HasKitchenObject())
@@ -23,6 +22,12 @@ public class CuttingCounter : BaseCounter
                 if (HasRecipeWithInput(player.GetKitchenObject().GetKitchenObjectSO()))
                 {
                     player.GetKitchenObject().SetKitchenObjectParent(this);
+                    cuttingProgress = 0;
+                    CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
+                    OnProgressChanged?.Invoke(this, new OnProgressChangedEventArgs
+                    {
+                        progressNormalized = (float)cuttingProgress / cuttingRecipeSO.cuttingProgressMax
+                    });
                 }
             }
         }
@@ -31,31 +36,61 @@ public class CuttingCounter : BaseCounter
             if (!player.HasKitchenObject())
             {
                 GetKitchenObject().SetKitchenObjectParent(player);
+                OnProgressChanged?.Invoke(this, new OnProgressChangedEventArgs
+                {
+                    progressNormalized = 0f
+                });
+            }
+        }
+    }
+    public override void TryCut(Player player)
+    {
+        if (HasKitchenObject() && HasRecipeWithInput(GetKitchenObject().GetKitchenObjectSO()))
+        {
+            cuttingProgress++;
+            OnCut?.Invoke(this, EventArgs.Empty);
+            CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(GetKitchenObject().GetKitchenObjectSO());
+            OnProgressChanged?.Invoke(this, new OnProgressChangedEventArgs
+            {
+                progressNormalized = (float)cuttingProgress / cuttingRecipeSO.cuttingProgressMax
+            });
+            if (cuttingProgress >= cuttingRecipeSO.cuttingProgressMax)
+            {
+                KitchenObjectSO outputKitchenObjectSO = GetOutputForInput(GetKitchenObject().GetKitchenObjectSO());
+                GetKitchenObject().DestroySelf();
+                KitchenObject.SpawnKitchenObject(outputKitchenObjectSO, this);
             }
         }
     }
 
     private KitchenObjectSO GetOutputForInput(KitchenObjectSO input)
     {
-        foreach (CuttingRecipeSO cuttingRecipeSO in cuttingRecipeSOArray)
+        CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(input);
+        if (cuttingRecipeSO != null)
         {
-            if (cuttingRecipeSO.input == input)
-            {
-                return cuttingRecipeSO.output;
-            }
+            return cuttingRecipeSO.output;
         }
-        return null;
+        else
+        {
+            return null;
+        }
     }
 
     private bool HasRecipeWithInput(KitchenObjectSO input)
+    {
+        CuttingRecipeSO cuttingRecipeSO = GetCuttingRecipeSOWithInput(input);
+        return cuttingRecipeSO != null;
+    }
+
+    private CuttingRecipeSO GetCuttingRecipeSOWithInput(KitchenObjectSO input)
     {
         foreach (CuttingRecipeSO cuttingRecipeSO in cuttingRecipeSOArray)
         {
             if (cuttingRecipeSO.input == input)
             {
-                return true;
+                return cuttingRecipeSO;
             }
         }
-        return false;
+        return null;
     }
 }
