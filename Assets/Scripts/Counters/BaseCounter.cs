@@ -3,7 +3,7 @@ using UnityEngine;
 public class BaseCounter : MonoBehaviour, IKitchenObjectParent
 {
     [SerializeField]
-    private Transform spawmPoint;
+    private Transform spawnPoint;
 
     private KitchenObject kitchenObject;
     private void OnEnable()
@@ -40,7 +40,7 @@ public class BaseCounter : MonoBehaviour, IKitchenObjectParent
     }
     public Transform GetKitchenObjectFollowTransform()
     {
-        return spawmPoint;
+        return spawnPoint;
     }
 
     public void SetKitchenObject(KitchenObject kitchenObject)
