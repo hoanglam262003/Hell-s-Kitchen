@@ -324,7 +324,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9efe676a1a40c2841a663267787ba1fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::ContainerCounter
-  spawmPoint: {fileID: 8311995448821347393}
+  spawnPoint: {fileID: 8311995448821347393}
   kitchenObjectSO: {fileID: 11400000, guid: 78e1f5f439883884eb95f0e8cdbc9a97, type: 2}
 --- !u!4 &5680725524546502045 stripped
 Transform:
