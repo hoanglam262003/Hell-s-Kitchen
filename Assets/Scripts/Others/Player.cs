@@ -55,6 +55,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     private void HandleInteractionInput()
     {
         if (baseCounter == null) return;
+        if (!GameManager.Instance.IsGamePlaying()) return;
 
         if (Keyboard.current.eKey.wasPressedThisFrame)
         {
