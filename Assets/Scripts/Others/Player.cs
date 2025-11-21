@@ -5,7 +5,6 @@ using UnityEngine.InputSystem;
 public class Player : MonoBehaviour, IKitchenObjectParent
 {
     public static Player Instance { get; private set; }
-
     public event EventHandler OnPickedSomething;
     public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
     public class OnSelectedCounterChangedEventArgs : EventArgs
@@ -45,11 +44,20 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         HandleMovement();
         HandleInteractions();
         HandleInteractionInput();
+        HandlePauseInput();
     }
 
     public bool IsWalking()
     {
         return isWalking;
+    }
+
+    private void HandlePauseInput()
+    {
+        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        {
+            GameManager.Instance.TogglePauseGame();
+        }
     }
 
     private void HandleInteractionInput()

@@ -5,6 +5,10 @@ public class CuttingCounter : BaseCounter, IHasProgress
 {
     public event EventHandler<IHasProgress.OnProgressChangedEventArgs> OnProgressChanged;
     public static event EventHandler OnAnyCut;
+    public new static void ResetStaticData()
+    {
+        OnAnyCut = null;
+    }
     public event EventHandler OnCut;
     [SerializeField]
     private CuttingRecipeSO[] cuttingRecipeSOArray;
