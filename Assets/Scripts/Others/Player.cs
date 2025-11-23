@@ -13,6 +13,8 @@ public class Player : MonoBehaviour, IKitchenObjectParent
     }
 
     [SerializeField]
+    private GameInput gameInput;
+    [SerializeField]
     private float moveSpeed = 7f;
     [SerializeField]
     private float rotationSpeed = 10f;
@@ -54,7 +56,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     private void HandlePauseInput()
     {
-        if (Keyboard.current.escapeKey.wasPressedThisFrame)
+        if (gameInput.IsPausePressed())
         {
             GameManager.Instance.TogglePauseGame();
         }
@@ -65,12 +67,12 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         if (baseCounter == null) return;
         if (!GameManager.Instance.IsGamePlaying()) return;
 
-        if (Keyboard.current.eKey.wasPressedThisFrame)
+        if (gameInput.IsInteractPressed())
         {
             PlayerInteractionEvent.RaiseInteraction(baseCounter, this, InteractionType.Interact);
         }
 
-        if (Keyboard.current.fKey.wasPressedThisFrame)
+        if (gameInput.IsCutPressed())
         {
             PlayerInteractionEvent.RaiseInteraction(baseCounter, this, InteractionType.Cut);
         }
@@ -103,26 +105,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     private void HandleMovement()
     {
-        Vector2 input = new Vector2(0, 0);
-
-        if (Keyboard.current.wKey.isPressed || Keyboard.current.upArrowKey.isPressed)
-        {
-            input.y = 1;
-        }
-        if (Keyboard.current.sKey.isPressed || Keyboard.current.downArrowKey.isPressed)
-        {
-            input.y = -1;
-        }
-        if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed)
-        {
-            input.x = -1;
-        }
-        if (Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed)
-        {
-            input.x = 1;
-        }
-
-        input = input.normalized;
+        Vector2 input = gameInput.GetMovementVectorNormalized();
         moveDistance = moveSpeed * Time.deltaTime;
         Vector3 moveDirection = new Vector3(input.x, 0f, input.y);
 
