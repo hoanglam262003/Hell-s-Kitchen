@@ -50,6 +50,8 @@ public class OptionsUI : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI duplicateKeyNotification;
 
+    private Action onCloseButtonAction;
+
     private void Awake()
     {
         Instance = this;
@@ -66,6 +68,7 @@ public class OptionsUI : MonoBehaviour
         backButton.onClick.AddListener(() =>
         {
             Hide();
+            onCloseButtonAction();
         });
         moveUpButton.onClick.AddListener(() =>
         {
@@ -123,8 +126,9 @@ public class OptionsUI : MonoBehaviour
         cutText.text = GameInput.Instance.GetBindingText(GameInput.Binding.Cut);
         pauseText.text = GameInput.Instance.GetBindingText(GameInput.Binding.Pause);
     }
-    public void Show()
+    public void Show(Action onCloseButtonAction)
     {
+        this.onCloseButtonAction = onCloseButtonAction;
         gameObject.SetActive(true);
     }
     public void Hide()

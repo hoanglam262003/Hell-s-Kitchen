@@ -103,4 +103,12 @@ public class GameManager : MonoBehaviour
             OnGameUnpaused?.Invoke(this, EventArgs.Empty);
         }
     }
+    public void ResetState()
+    {
+        state = State.WaitingToStart;
+        waitingToStartTimer = 1f;
+        countdownToStartTimer = 3f;
+        gamePlayingTimer = gamePlayingTimerMax;
+        Time.timeScale = 1f;
+    }
 }
