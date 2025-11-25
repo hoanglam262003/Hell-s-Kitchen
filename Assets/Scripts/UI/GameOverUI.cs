@@ -1,11 +1,31 @@
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class GameOverUI : MonoBehaviour
 {
     [SerializeField]
     private TextMeshProUGUI recipesDeliveredText;
+    [SerializeField]
+    private Button mainMenuButton;
+    [SerializeField]
+    private Button playAgainButton;
+    private void Awake()
+    {
+        mainMenuButton.onClick.AddListener(() =>
+        {
+            GameInput.Instance.enabled = false;
+            Loader.LoadScene(Loader.Scene.MainMenuScene);
+        });
+        playAgainButton.onClick.AddListener(() =>
+        {
+            GameManager.Instance.ResetState();
+            GameInput.Instance.enabled = false;
+            Loader.LoadScene(Loader.Scene.SampleScene);
+        });
+    }
 
     private void Start()
     {
@@ -17,6 +37,7 @@ public class GameOverUI : MonoBehaviour
     {
         if (GameManager.Instance.IsGameOver())
         {
+            GameInput.Instance.enabled = false;
             Show();
             recipesDeliveredText.text = DeliveryManager.Instance.GetSuccessfulRecipesDelivered().ToString();
         }

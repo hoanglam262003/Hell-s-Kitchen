@@ -30,7 +30,11 @@ public class GameInput : MonoBehaviour
         }
         playerInputActions.Player.Enable();
     }
-
+    private void OnDestroy()
+    {
+        playerInputActions.Player.Disable();
+        playerInputActions.Dispose();
+    }
     public Vector2 GetMovementVectorNormalized()
     {
         Vector2 input = playerInputActions.Player.Move.ReadValue<Vector2>();
