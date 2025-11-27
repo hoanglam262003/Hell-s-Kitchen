@@ -6,6 +6,9 @@ public class GameInput : MonoBehaviour
 {
     private const string PLAYER_PREFS_BINDINGS = "InputBindings";
     public static GameInput Instance { get; private set; }
+
+    public event EventHandler OnBindingRebind;
+    public event EventHandler OnInteractAction;
     public enum Binding
     {
         Move_Up,
@@ -28,6 +31,7 @@ public class GameInput : MonoBehaviour
         {
             playerInputActions.LoadBindingOverridesFromJson(PlayerPrefs.GetString(PLAYER_PREFS_BINDINGS));
         }
+        playerInputActions.Player.Interact.performed += ctx => OnInteractAction?.Invoke(this, EventArgs.Empty);
         playerInputActions.Player.Enable();
     }
     private void OnDestroy()
@@ -126,6 +130,7 @@ public class GameInput : MonoBehaviour
                     PlayerPrefs.Save();
 
                     onSuccess();
+                    OnBindingRebind?.Invoke(this, EventArgs.Empty);
                 });
 
             currentRebind.Start();
