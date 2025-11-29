@@ -1,10 +1,11 @@
 using System;
+using Unity.Netcode;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class Player : MonoBehaviour, IKitchenObjectParent
+public class Player : NetworkBehaviour, IKitchenObjectParent
 {
-    public static Player Instance { get; private set; }
+    //public static Player Instance { get; private set; }
     public event EventHandler OnPickedSomething;
     public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
     public class OnSelectedCounterChangedEventArgs : EventArgs
@@ -12,8 +13,6 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         public BaseCounter selectedCounter;
     }
 
-    [SerializeField]
-    private GameInput gameInput;
     [SerializeField]
     private float moveSpeed = 7f;
     [SerializeField]
@@ -32,13 +31,13 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     private void Awake()
     {
-        if (Instance != null)
-        {
-            Debug.LogError("There is more than one Player instance!");
-            Destroy(gameObject);
-            return;
-        }
-        Instance = this;
+        //if (Instance != null)
+        //{
+        //    Debug.LogError("There is more than one Player instance!");
+        //    Destroy(gameObject);
+        //    return;
+        //}
+        //Instance = this;
     }
 
     private void Update()
@@ -56,7 +55,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     private void HandlePauseInput()
     {
-        if (gameInput.IsPausePressed())
+        if (GameInput.Instance.IsPausePressed())
         {
             GameManager.Instance.TogglePauseGame();
         }
@@ -67,12 +66,12 @@ public class Player : MonoBehaviour, IKitchenObjectParent
         if (baseCounter == null) return;
         if (!GameManager.Instance.IsGamePlaying()) return;
 
-        if (gameInput.IsInteractPressed())
+        if (GameInput.Instance.IsInteractPressed())
         {
             PlayerInteractionEvent.RaiseInteraction(baseCounter, this, InteractionType.Interact);
         }
 
-        if (gameInput.IsCutPressed())
+        if (GameInput.Instance.IsCutPressed())
         {
             PlayerInteractionEvent.RaiseInteraction(baseCounter, this, InteractionType.Cut);
         }
@@ -105,7 +104,7 @@ public class Player : MonoBehaviour, IKitchenObjectParent
 
     private void HandleMovement()
     {
-        Vector2 input = gameInput.GetMovementVectorNormalized();
+        Vector2 input = GameInput.Instance.GetMovementVectorNormalized();
         moveDistance = moveSpeed * Time.deltaTime;
         Vector3 moveDirection = new Vector3(input.x, 0f, input.y);
 
