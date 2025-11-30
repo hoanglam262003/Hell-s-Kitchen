@@ -28,7 +28,6 @@ public class Player : NetworkBehaviour, IKitchenObjectParent
     private float interactionDistance = 2f;
     private BaseCounter baseCounter;
     private KitchenObject kitchenObject;
-    private Vector2 serverInput;
 
     private void Awake()
     {
