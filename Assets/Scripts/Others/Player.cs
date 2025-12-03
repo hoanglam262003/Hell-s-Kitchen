@@ -5,7 +5,13 @@ using UnityEngine.InputSystem;
 
 public class Player : NetworkBehaviour, IKitchenObjectParent
 {
-    //public static Player Instance { get; private set; }
+    public static event EventHandler OnAnyPlayerSpawned;
+    public static event EventHandler OnAnyPickSomething;
+    public static void ResetStaticData()
+    {
+        OnAnyPlayerSpawned = null;
+    }
+    public static Player LocalInstance { get; private set; }
     public event EventHandler OnPickedSomething;
     public event EventHandler<OnSelectedCounterChangedEventArgs> OnSelectedCounterChanged;
     public class OnSelectedCounterChangedEventArgs : EventArgs
@@ -29,15 +35,13 @@ public class Player : NetworkBehaviour, IKitchenObjectParent
     private BaseCounter baseCounter;
     private KitchenObject kitchenObject;
 
-    private void Awake()
+    public override void OnNetworkSpawn()
     {
-        //if (Instance != null)
-        //{
-        //    Debug.LogError("There is more than one Player instance!");
-        //    Destroy(gameObject);
-        //    return;
-        //}
-        //Instance = this;
+        if (IsOwner)
+        {
+            LocalInstance = this;
+        }
+        OnAnyPlayerSpawned?.Invoke(this, EventArgs.Empty);
     }
 
     private void Update()
@@ -176,6 +180,7 @@ public class Player : NetworkBehaviour, IKitchenObjectParent
         if (kitchenObject != null)
         {
             OnPickedSomething?.Invoke(this, EventArgs.Empty);
+            OnAnyPickSomething?.Invoke(this, EventArgs.Empty);
         }
     }
 
