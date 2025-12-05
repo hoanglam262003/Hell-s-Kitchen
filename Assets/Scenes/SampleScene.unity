@@ -214,6 +214,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -514,6 +515,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -645,6 +647,18 @@ PrefabInstance:
     - target: {fileID: 583999209784412743, guid: 1f52c03eb822aed41ba2204f5e3210c4, type: 3}
       propertyPath: m_Name
       value: ContainerCounterMeatUncooked
+      objectReference: {fileID: 0}
+    - target: {fileID: 2806797283728262453, guid: 1f52c03eb822aed41ba2204f5e3210c4, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 963736204
+      objectReference: {fileID: 0}
+    - target: {fileID: 2806797283728262453, guid: 1f52c03eb822aed41ba2204f5e3210c4, type: 3}
+      propertyPath: SceneMigrationSynchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2806797283728262453, guid: 1f52c03eb822aed41ba2204f5e3210c4, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 1861125485
       objectReference: {fileID: 0}
     - target: {fileID: 7582681952717497927, guid: 1f52c03eb822aed41ba2204f5e3210c4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1159,6 +1173,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClearCounter (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 1542116597
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: SceneMigrationSynchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 2571199899
+      objectReference: {fileID: 0}
     - target: {fileID: 4668620099138169677, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
       propertyPath: kitchenObjectSO
       value: 
@@ -1303,6 +1329,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -1611,6 +1638,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -1976,6 +2004,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -2069,6 +2098,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6121854882702122156, guid: 626fb596ad9d5fb4683f0b1f17f1f349, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 46939605
+      objectReference: {fileID: 0}
+    - target: {fileID: 6121854882702122156, guid: 626fb596ad9d5fb4683f0b1f17f1f349, type: 3}
+      propertyPath: SceneMigrationSynchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6121854882702122156, guid: 626fb596ad9d5fb4683f0b1f17f1f349, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 3942422130
+      objectReference: {fileID: 0}
     - target: {fileID: 8798984709680649182, guid: 626fb596ad9d5fb4683f0b1f17f1f349, type: 3}
       propertyPath: m_Name
       value: StoveCounter
@@ -2094,6 +2135,18 @@ PrefabInstance:
     - target: {fileID: 659890875515863966, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
       propertyPath: m_Name
       value: ClearCounter (14)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 1487967234
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: SceneMigrationSynchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 2571199899
       objectReference: {fileID: 0}
     - target: {fileID: 4668620099138169677, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
       propertyPath: kitchenObjectSO
@@ -2201,6 +2254,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlatesCounter
       objectReference: {fileID: 0}
+    - target: {fileID: 9136306360166013023, guid: a27ea17bd939c1041ab40b3dbd6d0a95, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 1668952335
+      objectReference: {fileID: 0}
+    - target: {fileID: 9136306360166013023, guid: a27ea17bd939c1041ab40b3dbd6d0a95, type: 3}
+      propertyPath: SceneMigrationSynchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9136306360166013023, guid: a27ea17bd939c1041ab40b3dbd6d0a95, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 55642613
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2306,6 +2371,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -2373,14 +2439,14 @@ Light:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 410087039}
   m_Enabled: 1
-  serializedVersion: 11
+  serializedVersion: 12
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 2
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
+  m_CookieSize2D: {x: 10, y: 10}
   m_Shadows:
     m_Type: 2
     m_Resolution: -1
@@ -2537,6 +2603,18 @@ PrefabInstance:
     - target: {fileID: 659890875515863966, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
       propertyPath: m_Name
       value: ClearCounter (11)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2400128517
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: SceneMigrationSynchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 2571199899
       objectReference: {fileID: 0}
     - target: {fileID: 4668620099138169677, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
       propertyPath: kitchenObjectSO
@@ -2716,6 +2794,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &520861974
 MeshFilter:
@@ -2751,6 +2830,18 @@ PrefabInstance:
     - target: {fileID: 2203248301550153877, guid: ab98009b539699e4aa60642790544819, type: 3}
       propertyPath: m_Name
       value: CuttingCounter
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493374691337945063, guid: ab98009b539699e4aa60642790544819, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2153606337
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493374691337945063, guid: ab98009b539699e4aa60642790544819, type: 3}
+      propertyPath: SceneMigrationSynchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493374691337945063, guid: ab98009b539699e4aa60642790544819, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 3678033696
       objectReference: {fileID: 0}
     - target: {fileID: 9201508834027494549, guid: ab98009b539699e4aa60642790544819, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2808,6 +2899,18 @@ PrefabInstance:
     - target: {fileID: 659890875515863966, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
       propertyPath: m_Name
       value: ClearCounter (12)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 1890806924
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: SceneMigrationSynchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 2571199899
       objectReference: {fileID: 0}
     - target: {fileID: 4668620099138169677, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
       propertyPath: kitchenObjectSO
@@ -3165,6 +3268,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -3346,6 +3450,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &601125395
 MeshFilter:
@@ -3421,6 +3526,18 @@ PrefabInstance:
     - target: {fileID: 6516926773239264653, guid: 5768ede8824a8f544b66cff872613df2, type: 3}
       propertyPath: m_Name
       value: TrashCounter
+      objectReference: {fileID: 0}
+    - target: {fileID: 8401941410411985663, guid: 5768ede8824a8f544b66cff872613df2, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2904675372
+      objectReference: {fileID: 0}
+    - target: {fileID: 8401941410411985663, guid: 5768ede8824a8f544b66cff872613df2, type: 3}
+      propertyPath: SceneMigrationSynchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8401941410411985663, guid: 5768ede8824a8f544b66cff872613df2, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 3356267588
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3527,6 +3644,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -3667,6 +3785,18 @@ PrefabInstance:
     - target: {fileID: 659890875515863966, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
       propertyPath: m_Name
       value: ClearCounter (9)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2986735707
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: SceneMigrationSynchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 2571199899
       objectReference: {fileID: 0}
     - target: {fileID: 4668620099138169677, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
       propertyPath: kitchenObjectSO
@@ -3892,6 +4022,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -4028,6 +4159,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -4390,6 +4522,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &683254727
 MeshFilter:
@@ -4630,6 +4763,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -4766,6 +4900,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -4940,6 +5075,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClearCounter (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2724989667
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: SceneMigrationSynchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 2571199899
+      objectReference: {fileID: 0}
     - target: {fileID: 4668620099138169677, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
       propertyPath: kitchenObjectSO
       value: 
@@ -5084,6 +5231,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -5479,6 +5627,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &852470832
 MeshFilter:
@@ -5598,6 +5747,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -5809,6 +5959,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -6098,6 +6249,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -6234,6 +6386,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -6370,6 +6523,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -6506,6 +6660,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -6642,6 +6797,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -6965,6 +7121,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -7101,6 +7258,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -7274,6 +7432,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -7410,6 +7569,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -7546,6 +7706,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -7674,6 +7835,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClearCounter
       objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 1147874010
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: SceneMigrationSynchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 2571199899
+      objectReference: {fileID: 0}
     - target: {fileID: 7496723582691045278, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.5
@@ -7730,6 +7903,18 @@ PrefabInstance:
     - target: {fileID: 659890875515863966, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
       propertyPath: m_Name
       value: ClearCounter (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 1809783711
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: SceneMigrationSynchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 2571199899
       objectReference: {fileID: 0}
     - target: {fileID: 4668620099138169677, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
       propertyPath: kitchenObjectSO
@@ -7880,6 +8065,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -7972,6 +8158,18 @@ PrefabInstance:
     - target: {fileID: 5318967989853026126, guid: 52c40c11eb6749e49a49a7e0fe74753b, type: 3}
       propertyPath: m_Name
       value: DeliveryCounter
+      objectReference: {fileID: 0}
+    - target: {fileID: 7438172356573689916, guid: 52c40c11eb6749e49a49a7e0fe74753b, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 3784224769
+      objectReference: {fileID: 0}
+    - target: {fileID: 7438172356573689916, guid: 52c40c11eb6749e49a49a7e0fe74753b, type: 3}
+      propertyPath: SceneMigrationSynchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7438172356573689916, guid: 52c40c11eb6749e49a49a7e0fe74753b, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 3438769625
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -8231,6 +8429,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -8474,6 +8673,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -8602,6 +8802,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1166708680
 MeshFilter:
@@ -8828,6 +9029,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -8964,6 +9166,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -9221,6 +9424,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -9275,6 +9479,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1473977614}
     m_Modifications:
+    - target: {fileID: 258214298762236992, guid: d7454b658046f0844b419a6df678c329, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 526392901
+      objectReference: {fileID: 0}
+    - target: {fileID: 258214298762236992, guid: d7454b658046f0844b419a6df678c329, type: 3}
+      propertyPath: SceneMigrationSynchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 258214298762236992, guid: d7454b658046f0844b419a6df678c329, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 4251245149
+      objectReference: {fileID: 0}
     - target: {fileID: 3277542889836436274, guid: d7454b658046f0844b419a6df678c329, type: 3}
       propertyPath: m_Name
       value: ContainerCounterCheeseBlock
@@ -9335,6 +9551,18 @@ PrefabInstance:
     - target: {fileID: 659890875515863966, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
       propertyPath: m_Name
       value: ClearCounter (15)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 1200257929
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: SceneMigrationSynchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 2571199899
       objectReference: {fileID: 0}
     - target: {fileID: 4668620099138169677, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
       propertyPath: kitchenObjectSO
@@ -9697,6 +9925,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -10061,6 +10290,7 @@ MonoBehaviour:
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -10150,6 +10380,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5420955809264762190, guid: caed81e0e2fb1824096b26744b1da9ea, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 65433252
+      objectReference: {fileID: 0}
+    - target: {fileID: 5420955809264762190, guid: caed81e0e2fb1824096b26744b1da9ea, type: 3}
+      propertyPath: SceneMigrationSynchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5420955809264762190, guid: caed81e0e2fb1824096b26744b1da9ea, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 1731790191
+      objectReference: {fileID: 0}
     - target: {fileID: 7337047670147019324, guid: caed81e0e2fb1824096b26744b1da9ea, type: 3}
       propertyPath: m_Name
       value: ContainerCounterTomato
@@ -10210,6 +10452,18 @@ PrefabInstance:
     - target: {fileID: 4912227699552702074, guid: 54cd89b15529e2043b90bae5e34b7ee2, type: 3}
       propertyPath: m_Name
       value: ContainerCounterCabbage
+      objectReference: {fileID: 0}
+    - target: {fileID: 7692933750828876040, guid: 54cd89b15529e2043b90bae5e34b7ee2, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 1480375979
+      objectReference: {fileID: 0}
+    - target: {fileID: 7692933750828876040, guid: 54cd89b15529e2043b90bae5e34b7ee2, type: 3}
+      propertyPath: SceneMigrationSynchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7692933750828876040, guid: 54cd89b15529e2043b90bae5e34b7ee2, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 1533799394
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10313,6 +10567,18 @@ PrefabInstance:
     - target: {fileID: 659890875515863966, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
       propertyPath: m_Name
       value: ClearCounter (10)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2436385549
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: SceneMigrationSynchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 2571199899
       objectReference: {fileID: 0}
     - target: {fileID: 4668620099138169677, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
       propertyPath: kitchenObjectSO
@@ -10812,6 +11078,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -11055,6 +11322,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -11191,6 +11459,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -11327,6 +11596,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -11419,6 +11689,18 @@ PrefabInstance:
     - target: {fileID: 1962888673148616670, guid: 626fb596ad9d5fb4683f0b1f17f1f349, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6121854882702122156, guid: 626fb596ad9d5fb4683f0b1f17f1f349, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 637934608
+      objectReference: {fileID: 0}
+    - target: {fileID: 6121854882702122156, guid: 626fb596ad9d5fb4683f0b1f17f1f349, type: 3}
+      propertyPath: SceneMigrationSynchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6121854882702122156, guid: 626fb596ad9d5fb4683f0b1f17f1f349, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 3942422130
       objectReference: {fileID: 0}
     - target: {fileID: 8798984709680649182, guid: 626fb596ad9d5fb4683f0b1f17f1f349, type: 3}
       propertyPath: m_Name
@@ -11633,6 +11915,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -11690,6 +11973,18 @@ PrefabInstance:
     - target: {fileID: 659890875515863966, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
       propertyPath: m_Name
       value: ClearCounter (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 1045532198
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: SceneMigrationSynchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 2571199899
       objectReference: {fileID: 0}
     - target: {fileID: 4668620099138169677, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
       propertyPath: kitchenObjectSO
@@ -12030,6 +12325,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -12246,6 +12542,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -12298,6 +12595,18 @@ PrefabInstance:
     - target: {fileID: 659890875515863966, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
       propertyPath: m_Name
       value: ClearCounter (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 3885361995
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: SceneMigrationSynchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 2571199899
       objectReference: {fileID: 0}
     - target: {fileID: 4668620099138169677, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
       propertyPath: kitchenObjectSO
@@ -12660,6 +12969,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClearCounter (16)
       objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 3987647940
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: SceneMigrationSynchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 2571199899
+      objectReference: {fileID: 0}
     - target: {fileID: 4668620099138169677, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
       propertyPath: kitchenObjectSO
       value: 
@@ -12959,6 +13280,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1650873425
 MeshFilter:
@@ -13078,6 +13400,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -13214,6 +13537,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -13271,6 +13595,18 @@ PrefabInstance:
     - target: {fileID: 2203248301550153877, guid: ab98009b539699e4aa60642790544819, type: 3}
       propertyPath: m_Name
       value: CuttingCounter (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493374691337945063, guid: ab98009b539699e4aa60642790544819, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 1611709348
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493374691337945063, guid: ab98009b539699e4aa60642790544819, type: 3}
+      propertyPath: SceneMigrationSynchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3493374691337945063, guid: ab98009b539699e4aa60642790544819, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 3678033696
       objectReference: {fileID: 0}
     - target: {fileID: 9201508834027494549, guid: ab98009b539699e4aa60642790544819, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13406,6 +13742,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: ClearCounter (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 3344921957
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: SceneMigrationSynchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 2571199899
+      objectReference: {fileID: 0}
     - target: {fileID: 4668620099138169677, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
       propertyPath: kitchenObjectSO
       value: 
@@ -13466,6 +13814,18 @@ PrefabInstance:
     - target: {fileID: 659890875515863966, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
       propertyPath: m_Name
       value: ClearCounter (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 3828346189
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: SceneMigrationSynchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 2571199899
       objectReference: {fileID: 0}
     - target: {fileID: 4668620099138169677, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
       propertyPath: kitchenObjectSO
@@ -13611,6 +13971,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -13752,6 +14113,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -13880,6 +14242,7 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+  m_MaskInteraction: 0
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!33 &1825150636
 MeshFilter:
@@ -14213,6 +14576,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -14482,6 +14846,18 @@ PrefabInstance:
     - target: {fileID: 659890875515863966, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
       propertyPath: m_Name
       value: ClearCounter (13)
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 2962210580
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: SceneMigrationSynchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2864588621511232748, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 2571199899
       objectReference: {fileID: 0}
     - target: {fileID: 4668620099138169677, guid: 583bacdfbd987e84ab203d4aa47d41f9, type: 3}
       propertyPath: kitchenObjectSO
@@ -14789,6 +15165,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1473977614}
     m_Modifications:
+    - target: {fileID: 184984326908286419, guid: c95c431132f31ed49a6aacd15c6f1b13, type: 3}
+      propertyPath: GlobalObjectIdHash
+      value: 1274602443
+      objectReference: {fileID: 0}
+    - target: {fileID: 184984326908286419, guid: c95c431132f31ed49a6aacd15c6f1b13, type: 3}
+      propertyPath: SceneMigrationSynchronization
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 184984326908286419, guid: c95c431132f31ed49a6aacd15c6f1b13, type: 3}
+      propertyPath: InScenePlacedSourceGlobalObjectIdHash
+      value: 1422007119
+      objectReference: {fileID: 0}
     - target: {fileID: 3204387199332817569, guid: c95c431132f31ed49a6aacd15c6f1b13, type: 3}
       propertyPath: m_Name
       value: ContainerCounterBread
@@ -15217,6 +15605,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
@@ -15539,6 +15928,7 @@ MonoBehaviour:
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
+  m_characterHorizontalScale: 1
   m_wordSpacing: 0
   m_lineSpacing: 0
   m_lineSpacingMax: 0
