@@ -1,18 +1,15 @@
 using System;
-using TMPro;
 using Unity.Netcode;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class GameOverUI : MonoBehaviour
+public class HostDisconnectUI : MonoBehaviour
 {
     [SerializeField]
-    private TextMeshProUGUI recipesDeliveredText;
+    private Button playAgainButton;
     [SerializeField]
     private Button mainMenuButton;
-    [SerializeField]
-    private Button playAgainButton;
+
     private void Awake()
     {
         mainMenuButton.onClick.AddListener(() =>
@@ -32,31 +29,26 @@ public class GameOverUI : MonoBehaviour
 
     private void Start()
     {
-        GameManager.Instance.OnStateChanged += GameManager_OnStateChanged;
         Hide();
+        NetworkManager.Singleton.OnClientStopped += NetworkManager_OnClientStopped;
     }
 
-    private void GameManager_OnStateChanged(object sender, EventArgs e)
+    private void NetworkManager_OnClientStopped(bool wasHost)
     {
-        if (GameManager.Instance.IsGameOver())
+        if (!wasHost)
         {
-            GameInput.Instance.enabled = false;
             Show();
-            recipesDeliveredText.text = DeliveryManager.Instance.GetSuccessfulRecipesDelivered().ToString();
         }
-        else
-        {
-            Hide();
-        }
+    }
+
+
+    private void Show()
+    {
+        gameObject.SetActive(true);
     }
 
     private void Hide()
     {
         gameObject.SetActive(false);
-    }
-
-    private void Show()
-    {
-        gameObject.SetActive(true);
     }
 }
