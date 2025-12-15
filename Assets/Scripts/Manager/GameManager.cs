@@ -181,6 +181,11 @@ public class GameManager : NetworkBehaviour
         return 1 - (gamePlayingTimer.Value / gamePlayingTimerMax);
     }
 
+    public bool IsWaitingToStart()
+    {
+        return state.Value == State.WaitingToStart;
+    }
+
     public void TogglePauseGame()
     {
         localGamePaused = !localGamePaused;
