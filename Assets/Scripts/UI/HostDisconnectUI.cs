@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class HostDisconnectUI : MonoBehaviour
 {
     [SerializeField]
-    private Button playAgainButton;
-    [SerializeField]
     private Button mainMenuButton;
 
     private void Awake()
@@ -17,13 +15,6 @@ public class HostDisconnectUI : MonoBehaviour
             GameInput.Instance.enabled = false;
             NetworkManager.Singleton.Shutdown();
             Loader.LoadScene(Loader.Scene.MainMenuScene);
-        });
-        playAgainButton.onClick.AddListener(() =>
-        {
-            GameManager.Instance.ResetState();
-            GameInput.Instance.enabled = false;
-            NetworkManager.Singleton.Shutdown();
-            Loader.LoadScene(Loader.Scene.SampleScene);
         });
     }
 
