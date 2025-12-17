@@ -26,7 +26,7 @@ public class GameOverUI : MonoBehaviour
             GameManager.Instance.ResetState();
             GameInput.Instance.enabled = false;
             NetworkManager.Singleton.Shutdown();
-            Loader.LoadScene(Loader.Scene.SampleScene);
+            Loader.LoadScene(Loader.Scene.MainMenuScene);
         });
     }
 
