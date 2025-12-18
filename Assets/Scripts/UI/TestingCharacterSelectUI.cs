@@ -10,7 +10,6 @@ public class TestingCharacterSelectUI : MonoBehaviour
         readyButton.onClick.AddListener(() =>
         {
             CharacterSelectReady.Instance.SetPlayerReady();
-            readyButton.interactable = false;
         });
     }
 }
