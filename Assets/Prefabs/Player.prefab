@@ -91,6 +91,7 @@ MonoBehaviour:
   - {x: 2, y: 0, z: 0}
   - {x: -2, y: 0, z: -2}
   - {x: 2, y: 0, z: -2}
+  playerVisual: {fileID: 6663534722780920569}
 --- !u!114 &5494871973090977725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -333,6 +334,17 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 6024899996280613204, guid: 1c5dda3c7cd3cf742afcade5419faeab, type: 3}
   m_PrefabInstance: {fileID: 4748597140913003328}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6663534722780920569 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2134642959685542329, guid: 1c5dda3c7cd3cf742afcade5419faeab, type: 3}
+  m_PrefabInstance: {fileID: 4748597140913003328}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7809016201818355559}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a3b92a4f05bf6140b153ae8b9558c1c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerVisual
 --- !u!4 &7809016201818355556 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3294758251327466532, guid: 1c5dda3c7cd3cf742afcade5419faeab, type: 3}

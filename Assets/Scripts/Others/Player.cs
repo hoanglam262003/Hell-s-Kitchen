@@ -33,6 +33,8 @@ public class Player : NetworkBehaviour, IKitchenObjectParent
     private Transform kitchenObjectHoldPoint;
     [SerializeField]
     private List<Vector3> spawnPositionList;
+    [SerializeField]
+    private PlayerVisual playerVisual;
     private float playerRadius = 0.7f;
     //private float playerHeight = 2f;
     private float moveDistance;
@@ -41,13 +43,18 @@ public class Player : NetworkBehaviour, IKitchenObjectParent
     private BaseCounter baseCounter;
     private KitchenObject kitchenObject;
 
+    private void Start()
+    {
+        PlayerData playerData = KitchenGameMultiplayer.Instance.GetPlayerDataFromClientId(OwnerClientId);
+        playerVisual.SetPlayerColor(KitchenGameMultiplayer.Instance.GetPlayerColor(playerData.colorId));
+    }
     public override void OnNetworkSpawn()
     {
         if (IsOwner)
         {
             LocalInstance = this;
         }
-        transform.position = spawnPositionList[(int)OwnerClientId];
+        transform.position = spawnPositionList[KitchenGameMultiplayer.Instance.GetPlayerDataIndexFromClientId(OwnerClientId)];
         OnAnyPlayerSpawned?.Invoke(this, EventArgs.Empty);
 
         if (IsServer)
