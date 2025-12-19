@@ -12,8 +12,16 @@ public class HostDisconnectUI : MonoBehaviour
     {
         mainMenuButton.onClick.AddListener(() =>
         {
-            GameInput.Instance.enabled = false;
-            NetworkManager.Singleton.Shutdown();
+            if (GameInput.Instance != null)
+            {
+                GameInput.Instance.enabled = false;
+            }
+
+            if (NetworkManager.Singleton != null)
+            {
+                NetworkManager.Singleton.Shutdown();
+            }
+
             Loader.LoadScene(Loader.Scene.MainMenuScene);
         });
     }
@@ -41,5 +49,13 @@ public class HostDisconnectUI : MonoBehaviour
     private void Hide()
     {
         gameObject.SetActive(false);
+    }
+
+    private void OnDestroy()
+    {
+        if (NetworkManager.Singleton != null)
+        {
+            NetworkManager.Singleton.OnClientStopped -= NetworkManager_OnClientStopped;
+        }
     }
 }
