@@ -42,6 +42,7 @@ public class CharacterSelectReady : NetworkBehaviour
 
         if (allReady)
         {
+            KitchenGameLobby.Instance.DeleteLobby();
             Loader.LoadNetwork(Loader.Scene.SampleScene);
         }
 
