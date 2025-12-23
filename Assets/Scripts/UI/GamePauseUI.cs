@@ -20,6 +20,11 @@ public class GamePauseUI : MonoBehaviour
         });
         mainMenuButton.onClick.AddListener(() =>
         {
+            if (!KitchenGameMultiplayer.playMultiplayer)
+            {
+                Loader.LoadScene(Loader.Scene.MainMenuScene);
+                return;
+            }
             NetworkManager.Singleton.Shutdown();
             Loader.LoadScene(Loader.Scene.MainMenuScene);
         });

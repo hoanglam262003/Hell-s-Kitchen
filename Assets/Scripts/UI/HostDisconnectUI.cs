@@ -29,6 +29,8 @@ public class HostDisconnectUI : MonoBehaviour
     private void Start()
     {
         Hide();
+        if (!KitchenGameMultiplayer.playMultiplayer) return;
+        if (NetworkManager.Singleton == null) return;
         NetworkManager.Singleton.OnClientStopped += NetworkManager_OnClientStopped;
     }
 
@@ -53,6 +55,7 @@ public class HostDisconnectUI : MonoBehaviour
 
     private void OnDestroy()
     {
+        if (!KitchenGameMultiplayer.playMultiplayer) return;
         if (NetworkManager.Singleton != null)
         {
             NetworkManager.Singleton.OnClientStopped -= NetworkManager_OnClientStopped;

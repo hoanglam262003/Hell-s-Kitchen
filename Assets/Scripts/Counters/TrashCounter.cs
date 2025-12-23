@@ -14,7 +14,15 @@ public class TrashCounter : BaseCounter
         if (player.HasKitchenObject())
         {
             KitchenObject.DestroyKitchenObject(player.GetKitchenObject());
-            InteractLogicServerRpc();
+
+            if (KitchenGameMultiplayer.playMultiplayer)
+            {
+                InteractLogicServerRpc();
+            }
+            else
+            {
+                OnAnyObjectTrashed?.Invoke(this, EventArgs.Empty);
+            }
         }
     }
 

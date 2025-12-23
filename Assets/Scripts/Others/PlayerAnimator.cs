@@ -15,6 +15,11 @@ public class PlayerAnimator : NetworkBehaviour
 
     private void Update()
     {
+        if (!KitchenGameMultiplayer.playMultiplayer)
+        {
+            animator.SetBool(IS_WALKING, player.IsWalking());
+            return;
+        }
         if (!IsOwner)
         {
             return;

@@ -26,7 +26,7 @@ public class DeliveryManager : NetworkBehaviour
     }
     private void Update()
     {
-        if (!IsServer) return;
+        if (KitchenGameMultiplayer.playMultiplayer && !IsServer) return;
         spawnRecipeTimer -= Time.deltaTime;
         if (spawnRecipeTimer <= 0f)
         {
@@ -35,9 +35,23 @@ public class DeliveryManager : NetworkBehaviour
             if (GameManager.Instance.IsGamePlaying() && waitingRecipeSOList.Count < waitingRecipesMax)
             {
                 waitingRecipeSOIndex = UnityEngine.Random.Range(0, recipeListSO.recipeSOList.Count);
-                SpawnNewWaitingRecipeClientRpc(waitingRecipeSOIndex);
+                if (KitchenGameMultiplayer.playMultiplayer)
+                {
+                    SpawnNewWaitingRecipeClientRpc(waitingRecipeSOIndex);
+                }
+                else
+                {
+                    SpawnNewWaitingRecipeLocal(waitingRecipeSOIndex);
+                }
             }
         }
+    }
+
+    private void SpawnNewWaitingRecipeLocal(int recipeIndex)
+    {
+        RecipeSO recipeSO = recipeListSO.recipeSOList[recipeIndex];
+        waitingRecipeSOList.Add(recipeSO);
+        OnRecipeSpawned?.Invoke(this, EventArgs.Empty);
     }
 
     [ClientRpc]
@@ -76,13 +90,41 @@ public class DeliveryManager : NetworkBehaviour
                 }
                 if (plateContentsMatchesRecipe)
                 {
-                    DeliverCorrectRecipeServerRpc(i);
+                    if (KitchenGameMultiplayer.playMultiplayer)
+                    {
+                        DeliverCorrectRecipeServerRpc(i);
+                    }
+                    else
+                    {
+                        DeliverCorrectRecipeLocal(i);
+                    }
                     return;
                 }
             }
         }
-        DeliverIncorrectRecipeServerRpc();
+        if (KitchenGameMultiplayer.playMultiplayer)
+        {
+            DeliverIncorrectRecipeServerRpc();
+        }
+        else
+        {
+            DeliverIncorrectRecipeLocal();
+        }
     }
+
+    private void DeliverCorrectRecipeLocal(int index)
+    {
+        successfulRecipesDelivered++;
+        waitingRecipeSOList.RemoveAt(index);
+        OnRecipeCompleted?.Invoke(this, EventArgs.Empty);
+        OnRecipeSuccess?.Invoke(this, EventArgs.Empty);
+    }
+
+    private void DeliverIncorrectRecipeLocal()
+    {
+        OnRecipeFailed?.Invoke(this, EventArgs.Empty);
+    }
+
 
     [Rpc(SendTo.Server, InvokePermission = RpcInvokePermission.Everyone)]
     private void DeliverIncorrectRecipeServerRpc()

@@ -14,6 +14,11 @@ public class KitchenObject : NetworkBehaviour
     public KitchenObjectSO GetKitchenObjectSO() => kitchenObjectSO;
     public void SetKitchenObjectParent(IKitchenObjectParent kitchenObjectParent)
     {
+        if (!KitchenGameMultiplayer.playMultiplayer)
+        {
+            SetKitchenObjectParentLocal(kitchenObjectParent);
+            return;
+        }
         SetKitchenObjectParentServerRpc(kitchenObjectParent.GetNetworkObject());
     }
 
@@ -28,15 +33,21 @@ public class KitchenObject : NetworkBehaviour
     {
         kitchenObjectParentNetworkObjectReference.TryGet(out NetworkObject kitchenObjectParentNetworkObject);
         IKitchenObjectParent kitchenObjectParent = kitchenObjectParentNetworkObject.GetComponent<IKitchenObjectParent>();
+        SetKitchenObjectParentLocal(kitchenObjectParent);
+    }
+
+    private void SetKitchenObjectParentLocal(IKitchenObjectParent kitchenObjectParent)
+    {
         if (this.kitchenObjectParent != null)
         {
             this.kitchenObjectParent.ClearKitchenObject();
         }
-        this.kitchenObjectParent = kitchenObjectParent;
 
+        this.kitchenObjectParent = kitchenObjectParent;
         kitchenObjectParent.SetKitchenObject(this);
         followTransform.SetTargetTransform(kitchenObjectParent.GetKitchenObjectFollowTransform());
     }
+
 
     public IKitchenObjectParent GetKitchenObjectParent()
     {
@@ -69,11 +80,26 @@ public class KitchenObject : NetworkBehaviour
 
     public static void SpawnKitchenObject(KitchenObjectSO kitchenObjectSO, IKitchenObjectParent kitchenObjectParent)
     {
+        if (!KitchenGameMultiplayer.playMultiplayer)
+        {
+            Transform objTransform = Instantiate(kitchenObjectSO.prefab);
+
+            KitchenObject kitchenObject = objTransform.GetComponent<KitchenObject>();
+
+            kitchenObject.SetKitchenObjectParent(kitchenObjectParent);
+            return;
+        }
         KitchenGameMultiplayer.Instance.SpawnKitchenObject(kitchenObjectSO, kitchenObjectParent);
     }
 
     public static void DestroyKitchenObject(KitchenObject kitchenObject)
     {
+        if (!KitchenGameMultiplayer.playMultiplayer)
+        {
+            Destroy(kitchenObject.gameObject);
+            return;
+        }
+
         KitchenGameMultiplayer.Instance.DestroyKitchenObject(kitchenObject);
     }
 }

@@ -163,6 +163,7 @@ public class KitchenGameLobby : MonoBehaviour
 
     public async void CreateLobby(string lobbyName, bool isPrivate)
     {
+        KitchenGameMultiplayer.playMultiplayer = true;
         if (!AuthenticationService.Instance.IsSignedIn)
         {
             Debug.LogError("Not signed in yet!");
@@ -225,6 +226,7 @@ public class KitchenGameLobby : MonoBehaviour
 
     public async void QuickJoin()
     {
+        KitchenGameMultiplayer.playMultiplayer = true;
         OnJoinStarted?.Invoke(this, EventArgs.Empty);
         try
         {
@@ -252,6 +254,7 @@ public class KitchenGameLobby : MonoBehaviour
 
     public async void JoinWithCode(string lobbyCode)
     {
+        KitchenGameMultiplayer.playMultiplayer = true;
         OnJoinStarted?.Invoke(this, EventArgs.Empty);
         try
         {
@@ -278,6 +281,7 @@ public class KitchenGameLobby : MonoBehaviour
 
     public async void JoinWithId(string lobbyId)
     {
+        KitchenGameMultiplayer.playMultiplayer = true;
         OnJoinStarted?.Invoke(this, EventArgs.Empty);
         try
         {

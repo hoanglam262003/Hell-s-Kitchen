@@ -27,15 +27,33 @@ public class PlateKitchenObject : KitchenObject
         if (kitchenObjectsList.Contains(kitchenObjectSO))
         {
             return false;
-        } else
+        } 
+        else
         {
-            AddIngredientServerRpc(
-                KitchenGameMultiplayer.Instance.GetKitchenObjectSOIndex(kitchenObjectSO)
-            );
-            
+            if (KitchenGameMultiplayer.playMultiplayer)
+            {
+                AddIngredientServerRpc(
+                    KitchenGameMultiplayer.Instance.GetKitchenObjectSOIndex(kitchenObjectSO)
+                );
+            }
+            else
+            {
+                AddIngredientLocal(kitchenObjectSO);
+            }
+
             return true;
         }
     }
+
+    private void AddIngredientLocal(KitchenObjectSO kitchenObjectSO)
+    {
+        kitchenObjectsList.Add(kitchenObjectSO);
+        OnIngredientAdded?.Invoke(this, new IngredientAddedEventArgs
+        {
+            kitchenObjectSO = kitchenObjectSO
+        });
+    }
+
 
     [Rpc(SendTo.Server, InvokePermission = RpcInvokePermission.Everyone)]
     private void AddIngredientServerRpc(int kitchenObjectSOIndex)
