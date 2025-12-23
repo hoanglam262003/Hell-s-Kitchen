@@ -13,7 +13,15 @@ public class ContainerCounter : BaseCounter
         if (!player.HasKitchenObject())
         {
             KitchenObject.SpawnKitchenObject(kitchenObjectSO, player);
-            InteractLogicServerRpc();
+
+            if (KitchenGameMultiplayer.playMultiplayer)
+            {
+                InteractLogicServerRpc();
+            }
+            else
+            {
+                OnPlayerGrabbedObject?.Invoke(this, EventArgs.Empty);
+            }
         }
     }
 

@@ -43,25 +43,63 @@ public class Player : NetworkBehaviour, IKitchenObjectParent
     private BaseCounter baseCounter;
     private KitchenObject kitchenObject;
 
-    private void Start()
+    //private void Start()
+    //{
+    //    PlayerData playerData = KitchenGameMultiplayer.Instance.GetPlayerDataFromClientId(OwnerClientId);
+    //    playerVisual.SetPlayerColor(KitchenGameMultiplayer.Instance.GetPlayerColor(playerData.colorId));
+    //}
+
+    private void Awake()
     {
-        PlayerData playerData = KitchenGameMultiplayer.Instance.GetPlayerDataFromClientId(OwnerClientId);
-        playerVisual.SetPlayerColor(KitchenGameMultiplayer.Instance.GetPlayerColor(playerData.colorId));
+        if (!KitchenGameMultiplayer.playMultiplayer)
+        {
+            LocalInstance = this;
+            OnAnyPlayerSpawned?.Invoke(this, EventArgs.Empty);
+        }
     }
+
     public override void OnNetworkSpawn()
     {
         if (IsOwner)
         {
             LocalInstance = this;
         }
-        transform.position = spawnPositionList[KitchenGameMultiplayer.Instance.GetPlayerDataIndexFromClientId(OwnerClientId)];
+
+        // ===== MULTIPLAYER =====
+        if (KitchenGameMultiplayer.playMultiplayer)
+        {
+            int index =
+                KitchenGameMultiplayer.Instance
+                .GetPlayerDataIndexFromClientId(OwnerClientId);
+
+            if (index >= 0)
+            {
+                PlayerData playerData =
+                    KitchenGameMultiplayer.Instance.GetPlayerDataAtIndex(index);
+
+                playerVisual.SetPlayerColor(
+                    KitchenGameMultiplayer.Instance.GetPlayerColor(playerData.colorId)
+                );
+
+                transform.position = spawnPositionList[index];
+            }
+        }
+        // ===== SINGLEPLAYER =====
+        else
+        {
+            playerVisual.SetPlayerColor(Color.yellow);
+            transform.position = spawnPositionList[0];
+        }
+
         OnAnyPlayerSpawned?.Invoke(this, EventArgs.Empty);
 
         if (IsServer)
         {
-            NetworkManager.Singleton.OnClientDisconnectCallback += NetworkManager_OnClientDisconnectCallback;
+            NetworkManager.Singleton.OnClientDisconnectCallback +=
+                NetworkManager_OnClientDisconnectCallback;
         }
     }
+
 
     private void NetworkManager_OnClientDisconnectCallback(ulong clientId)
     {
@@ -73,7 +111,7 @@ public class Player : NetworkBehaviour, IKitchenObjectParent
 
     private void Update()
     {
-        if (!IsOwner)
+        if (!CanControl())
         {
             return;
         }
@@ -81,6 +119,16 @@ public class Player : NetworkBehaviour, IKitchenObjectParent
         HandleInteractions();
         HandleInteractionInput();
         HandlePauseInput();
+    }
+
+    private bool CanControl()
+    {
+        // SINGLE PLAYER
+        if (!KitchenGameMultiplayer.playMultiplayer)
+            return true;
+
+        // MULTIPLAYER
+        return IsOwner;
     }
 
     public bool IsWalking()

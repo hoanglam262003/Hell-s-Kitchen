@@ -18,6 +18,11 @@ public class GameOverUI : MonoBehaviour
         mainMenuButton.onClick.AddListener(() =>
         {
             GameInput.Instance.enabled = false;
+            if (!KitchenGameMultiplayer.playMultiplayer)
+            {
+                Loader.LoadScene(Loader.Scene.MainMenuScene);
+                return;
+            }
             NetworkManager.Singleton.Shutdown();
             Loader.LoadScene(Loader.Scene.MainMenuScene);
         });
@@ -25,6 +30,11 @@ public class GameOverUI : MonoBehaviour
         {
             GameManager.Instance.ResetState();
             GameInput.Instance.enabled = false;
+            if (!KitchenGameMultiplayer.playMultiplayer)
+            {
+                Loader.LoadScene(Loader.Scene.MainMenuScene);
+                return;
+            }
             NetworkManager.Singleton.Shutdown();
             Loader.LoadScene(Loader.Scene.MainMenuScene);
         });

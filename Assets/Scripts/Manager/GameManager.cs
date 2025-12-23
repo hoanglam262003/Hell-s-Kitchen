@@ -24,33 +24,87 @@ public class GameManager : NetworkBehaviour
         GameOver
     }
 
-    private NetworkVariable<State> state = new NetworkVariable<State>(State.WaitingToStart);
-    private bool isLocalPlayerReady;
-    private NetworkVariable<float> countdownToStartTimer = new NetworkVariable<float>(3f);
-    private NetworkVariable<float> gamePlayingTimer = new NetworkVariable<float>(0f);
-    private float gamePlayingTimerMax = 300f;
-    private bool localGamePaused = false;
-    private NetworkVariable<bool> gamePaused = new NetworkVariable<bool>(false);
+    private NetworkVariable<State> networkState = new NetworkVariable<State>(State.WaitingToStart);
+    private NetworkVariable<float> networkCountdownToStartTimer = new NetworkVariable<float>(3f);
+    private NetworkVariable<float> networkGamePlayingTimer = new NetworkVariable<float>(0f);
+    private NetworkVariable<bool> networkGamePaused = new NetworkVariable<bool>(false);
     private Dictionary<ulong, bool> playerReadyDictionary;
     private Dictionary<ulong, bool> playerPauseDictionary;
     private bool autoTestGamePauseState;
+
+    private State singleState;
+    private float singleCountdownTimer;
+    private float singleGameTimer;
+    private bool singleGamePaused;
+
+    private bool isLocalPlayerReady;
+    private float gamePlayingTimerMax = 300f;
+    private bool localGamePaused = false;
+    public bool IsMultiplayer => KitchenGameMultiplayer.playMultiplayer;
+
+    private State CurrentState
+    {
+        get => IsMultiplayer ? networkState.Value : singleState;
+        set
+        {
+            if (IsMultiplayer)
+                networkState.Value = value;
+            else
+                singleState = value;
+
+            OnStateChanged?.Invoke(this, EventArgs.Empty);
+        }
+    }
+
+    private float CountdownTimer
+    {
+        get => IsMultiplayer ? networkCountdownToStartTimer.Value : singleCountdownTimer;
+        set
+        {
+            if (IsMultiplayer)
+                networkCountdownToStartTimer.Value = value;
+            else
+                singleCountdownTimer = value;
+        }
+    }
+
+    private float GameTimer
+    {
+        get => IsMultiplayer ? networkGamePlayingTimer.Value : singleGameTimer;
+        set
+        {
+            if (IsMultiplayer)
+                networkGamePlayingTimer.Value = value;
+            else
+                singleGameTimer = value;
+        }
+    }
 
     private void Awake()
     {
         Instance = this;
         playerReadyDictionary = new Dictionary<ulong, bool>();
         playerPauseDictionary = new Dictionary<ulong, bool>();
+
+        singleState = State.WaitingToStart;
+        singleCountdownTimer = 3f;
+        singleGameTimer = gamePlayingTimerMax;
     }
 
     private void Start()
     {
         GameInput.Instance.OnInteractAction += GameInput_OnInteractAction;
+        if (!IsMultiplayer)
+        {
+            Instantiate(playerPrefab);
+        }
     }
 
     public override void OnNetworkSpawn()
     {
-        state.OnValueChanged += State_OnValueChanged;
-        gamePaused.OnValueChanged += GamePaused_OnValueChanged;
+        if (!IsMultiplayer) return;
+        networkState.OnValueChanged += State_OnValueChanged;
+        networkGamePaused.OnValueChanged += GamePaused_OnValueChanged;
         if (IsServer)
         {
             NetworkManager.Singleton.OnClientDisconnectCallback += NetworkManager_OnClientDisconnectCallback;
@@ -74,7 +128,7 @@ public class GameManager : NetworkBehaviour
 
     private void GamePaused_OnValueChanged(bool previousValue, bool newValue)
     {
-        if (gamePaused.Value)
+        if (networkGamePaused.Value)
         {
             Time.timeScale = 0f;
             OnMultiplayerGamePaused?.Invoke(this, EventArgs.Empty);
@@ -93,11 +147,22 @@ public class GameManager : NetworkBehaviour
 
     private void GameInput_OnInteractAction(object sender, EventArgs e)
     {
-        if (state.Value == State.WaitingToStart)
+        if (CurrentState == State.WaitingToStart)
         {
             isLocalPlayerReady = true;
             OnLocalPlayerReadyChanged?.Invoke(this, EventArgs.Empty);
-            SetPlayerReadyServerRpc();
+            if (IsMultiplayer)
+            {
+                if (NetworkManager.Singleton != null &&
+                    NetworkManager.Singleton.IsListening)
+                {
+                    SetPlayerReadyServerRpc();
+                }
+            }
+            else
+            {
+                CurrentState = State.CountdownToStart;
+            }
         }
     }
 
@@ -119,7 +184,7 @@ public class GameManager : NetworkBehaviour
 
         if (allReady)
         {
-            state.Value = State.CountdownToStart;
+            networkState.Value = State.CountdownToStart;
         }
 
         Debug.Log($"All players ready: {allReady}");
@@ -127,26 +192,25 @@ public class GameManager : NetworkBehaviour
 
     private void Update()
     {
-        if (!IsServer) return;
+        if (IsMultiplayer && !IsServer) return;
 
-        switch (state.Value)
+        switch (CurrentState)
         {
             case State.WaitingToStart:
-
                 break;
             case State.CountdownToStart:
-                countdownToStartTimer.Value -= Time.deltaTime;
-                if (countdownToStartTimer.Value < 0f)
+                CountdownTimer -= Time.deltaTime;
+                if (CountdownTimer < 0f)
                 {
-                    state.Value = State.GamePlaying;
-                    gamePlayingTimer.Value = gamePlayingTimerMax;
+                    CurrentState = State.GamePlaying;
+                    GameTimer = gamePlayingTimerMax;
                 }
                 break;
             case State.GamePlaying:
-                gamePlayingTimer.Value -= Time.deltaTime;
-                if (gamePlayingTimer.Value < 0f)
+                GameTimer -= Time.deltaTime;
+                if (GameTimer < 0f)
                 {
-                    state.Value = State.GameOver;
+                    CurrentState = State.GameOver;
                 }
                 break;
             case State.GameOver:
@@ -166,22 +230,22 @@ public class GameManager : NetworkBehaviour
 
     public bool IsGamePlaying()
     {
-        return state.Value == State.GamePlaying;
+        return CurrentState == State.GamePlaying;
     }
 
     public bool IsCountdownToStartActive()
     {
-        return state.Value == State.CountdownToStart;
+        return CurrentState == State.CountdownToStart;
     }
 
     public float GetCountdownToStartTimer()
     {
-        return countdownToStartTimer.Value;
+        return CountdownTimer;
     }
 
     public bool IsGameOver()
     {
-        return state.Value == State.GameOver;
+        return CurrentState == State.GameOver;
     }
 
     public bool IsLocalPlayerReady()
@@ -191,33 +255,40 @@ public class GameManager : NetworkBehaviour
 
     public float GetGamePlayingTimerNormalized()
     {
-        return 1 - (gamePlayingTimer.Value / gamePlayingTimerMax);
+        return 1 - (GameTimer / gamePlayingTimerMax);
     }
 
     public bool IsWaitingToStart()
     {
-        return state.Value == State.WaitingToStart;
+        return CurrentState == State.WaitingToStart;
     }
 
     public void TogglePauseGame()
     {
         localGamePaused = !localGamePaused;
-        if (localGamePaused)
+        if (IsMultiplayer)
         {
-            PauseGameServerRpc();
-            OnLocalGamePaused?.Invoke(this, EventArgs.Empty);
+            if (localGamePaused)
+                PauseGameServerRpc();
+            else
+                UnpauseGameServerRpc();
         }
         else
         {
-            UnpauseGameServerRpc();
-            OnLocalGameUnpaused?.Invoke(this, EventArgs.Empty);
+            singleGamePaused = localGamePaused;
+            Time.timeScale = singleGamePaused ? 0f : 1f;
         }
+
+        if (localGamePaused)
+            OnLocalGamePaused?.Invoke(this, EventArgs.Empty);
+        else
+            OnLocalGameUnpaused?.Invoke(this, EventArgs.Empty);
     }
     public void ResetState()
     {
-        state.Value = State.WaitingToStart;
-        countdownToStartTimer.Value = 3f;
-        gamePlayingTimer.Value = gamePlayingTimerMax;
+        CurrentState = State.WaitingToStart;
+        CountdownTimer = 3f;
+        GameTimer = gamePlayingTimerMax;
         Time.timeScale = 1f;
     }
 
@@ -237,16 +308,15 @@ public class GameManager : NetworkBehaviour
 
     private void TestGamePauseState()
     {
-        if (!IsServer) return;
-        if (NetworkManager.Singleton == null) return;
+        if (!IsServer || NetworkManager.Singleton == null) return;
         foreach (ulong clientId in NetworkManager.Singleton.ConnectedClientsIds)
         {
             if (playerPauseDictionary.ContainsKey(clientId) && playerPauseDictionary[clientId])
             {
-                gamePaused.Value = true;
+                networkGamePaused.Value = true;
                 return;
             }
         }
-        gamePaused.Value = false;
+        networkGamePaused.Value = false;
     }
 }

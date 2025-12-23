@@ -14,7 +14,7 @@ public class PlatesCounter : BaseCounter
 
     private void Update()
     {
-        if (!IsServer)
+        if (KitchenGameMultiplayer.playMultiplayer && !IsServer)
         {
             return;
         }
@@ -25,10 +25,24 @@ public class PlatesCounter : BaseCounter
             plateSpawnTimer = 0f;
             if (GameManager.Instance.IsGamePlaying() && plateSpawnAmount < platesSpawnAmountMax)
             {
-                SpawnPlatesServerRpc();
+                if (KitchenGameMultiplayer.playMultiplayer)
+                {
+                    SpawnPlatesServerRpc();
+                }
+                else
+                {
+                    SpawnPlateLocal();
+                }
             }
         }
     }
+
+    private void SpawnPlateLocal()
+    {
+        plateSpawnAmount++;
+        OnPlateSpawned?.Invoke(this, EventArgs.Empty);
+    }
+
 
     [ServerRpc]
     private void SpawnPlatesServerRpc()
@@ -50,7 +64,15 @@ public class PlatesCounter : BaseCounter
             if (plateSpawnAmount > 0)
             {
                 KitchenObject.SpawnKitchenObject(plateKitchenObjectSO, player);
-                InteractLogicServerRpc();
+                if (KitchenGameMultiplayer.playMultiplayer)
+                {
+                    InteractLogicServerRpc();
+                }
+                else
+                {
+                    plateSpawnAmount--;
+                    OnPlateRemoved?.Invoke(this, EventArgs.Empty);
+                }
             }
         }
     }
