@@ -43,12 +43,6 @@ public class Player : NetworkBehaviour, IKitchenObjectParent
     private BaseCounter baseCounter;
     private KitchenObject kitchenObject;
 
-    //private void Start()
-    //{
-    //    PlayerData playerData = KitchenGameMultiplayer.Instance.GetPlayerDataFromClientId(OwnerClientId);
-    //    playerVisual.SetPlayerColor(KitchenGameMultiplayer.Instance.GetPlayerColor(playerData.colorId));
-    //}
-
     private void Awake()
     {
         if (!KitchenGameMultiplayer.playMultiplayer)

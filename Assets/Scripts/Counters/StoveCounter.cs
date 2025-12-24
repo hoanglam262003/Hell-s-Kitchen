@@ -85,14 +85,6 @@ public class StoveCounter : BaseCounter, IHasProgress
         {
             state = state.Value
         });
-
-        //if (state.Value == State.Burned || state.Value == State.Idle)
-        //{
-        //    OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
-        //    {
-        //        progressNormalized = 0f
-        //    });
-        //}
     }
 
     private void BurningTimer_OnValueChanged(float previousValue, float newValue)
@@ -261,31 +253,24 @@ public class StoveCounter : BaseCounter, IHasProgress
                 }
                 else
                 {
-                    CurrentState = State.Idle;
-                    FryingTimer = 0f;
-                    BurningTimer = 0f;
-
-                    OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
-                    {
-                        progressNormalized = 0f
-                    });
+                    SetStateIdleLocal();
                 }
 
             }
         }
     }
-    //private KitchenObjectSO GetOutputForInput(KitchenObjectSO input)
-    //{
-    //    FryingRecipeSO fryingRecipeSO = GetFryingRecipeSOWithInput(input);
-    //    if (fryingRecipeSO != null)
-    //    {
-    //        return fryingRecipeSO.output;
-    //    }
-    //    else
-    //    {
-    //        return null;
-    //    }
-    //}
+
+    private void SetStateIdleLocal()
+    {
+        CurrentState = State.Idle;
+        FryingTimer = 0f;
+        BurningTimer = 0f;
+
+        OnProgressChanged?.Invoke(this, new IHasProgress.OnProgressChangedEventArgs
+        {
+            progressNormalized = 0f
+        });
+    }
 
     [Rpc(SendTo.Server, InvokePermission = RpcInvokePermission.Everyone)]
     private void SetStateIdleServerRpc()
