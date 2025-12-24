@@ -220,15 +220,6 @@ public class KitchenGameMultiplayer : NetworkBehaviour
 
     public PlayerData GetPlayerDataFromClientId(ulong clientId)
     {
-        //foreach (PlayerData playerData in playerDataNetworkList)
-        //{
-        //    if (playerData.clientId == clientId)
-        //    {
-        //        return playerData;
-        //    }
-        //}
-        //return default;
-
         if (!NetworkManager.Singleton.IsListening)
         {
             return default;

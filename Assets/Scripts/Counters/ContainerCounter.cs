@@ -35,6 +35,5 @@ public class ContainerCounter : BaseCounter
     private void InteractLogicClientRpc()
     {
         OnPlayerGrabbedObject?.Invoke(this, EventArgs.Empty);
-
     }
 }
